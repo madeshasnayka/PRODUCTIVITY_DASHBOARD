@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style1.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <div id="main">
+
+    <nav>
+
+    </nav>
+
+    <section class="allElem">
+      <header>
+        <div class="header-1">
+          <h2>Saturday, 1.00 pm</h2>
+          <h3>Mysore</h3>
+        </div>
+        <div class="header-2">
+          <h2>20 ℃</h2>
+          <h3>Light rain</h3>
+          <h3>precipitation:35%</h3>
+          <h3>Humidity:49%</h3>
+          <h3>wind:10 km/h</h3>
+        </div>
+      </header>
+      <div class="allFeatures1">
+        <div class="todo elm" id="0">
+          <img
+            src="https://images.unsplash.com/photo-1735192395661-9358e7d8cb75?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHx8"
+            alt="">
+          <h1>todo list</h1>
+        </div>
+        <div class="daily elm" id="1">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1666533177885-64832208c5c8?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDg4fHx8ZW58MHx8fHx8"
+            alt="">
+          <h1> daily planner</h1>
+        </div>
+        <div class="motiv elm" id="2">
+          <img
+            src="https://images.unsplash.com/photo-1611914974124-466c45d4c7a5?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D"
+            alt="">
+          <h1>motivation</h1>
+        </div>
+        <div class="pomo elm" id="3">
+          <img
+            src="https://images.unsplash.com/photo-1656231934649-c476090deb59?q=80&w=1362&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="">
+          <h1>pomodoro</h1>
+        </div>
+        <div class="goals elm" id="4">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1710962184897-4372495b7e1b?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDMzfHx8ZW58MHx8fHx8"
+            alt="">
+          <h1>
+            daily goals
+          </h1>
+        </div>
+      </div>
+
+
+    </section>
+
+    <section class="fullElem todo-list-fullpage">
+      <button class="back" id="0">close</button>
+      <h2>your personalized tasks</h2>
+      <div class="todo-container">
+        <div class="addTask">
+          <form>
+            <input type="text" placeholder="Enter Task" name="" id="task">
+            <textarea placeholder="Enter the Details" name="" id="taskDetails" cols="25" rows="8"></textarea>
+            <div class="imp">
+              <input type="checkbox" name="" id="checkbox">
+              <label for="checkbox">Mark as important</label>
+            </div>
+            <button class="todo_submission">Add Task</button>
+          </form>
+        </div>
+        <div class="allTask">
+
+        </div>
+      </div>
+    </section>
+    <section class="fullElem daily-planner-fullpage">
+      <button class="back" id="1">close</button>
+      <h2>Plan your Day TO be more Productive </h2>
+
+      <div class="dayplanner">
+        <div class="day-planner-time">
+
+          <input type="text" placeholder="....">
+        </div>
+
+
+
+
+      </div>
+
+    </section>
+
+    <section class="fullElem motivational-fullpage">
+
+      <button class="back" id="2">close</button>
+      <!-- <h1>Motivation</h1> -->
+      <div class="motivation-full-container">
+
+        <div class="motivational-container">
+          <div class="motivational-wrapper">
+            <img src="./quote.png" class="quote" alt="quote-image">
+            <div class="motivation-1">
+
+              <h2>Quote of the day.</h2>
+            </div>
+            <div class="motivation-2">
+              <h1></h1>
+            </div>
+            <div class="motivation-3">
+              <h2>Madesha s</h2>
+            </div>
+            </h1>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section class="fullElem pomodoro-fullpage">
+      <button class="back" id="3">close</button>
+      <h1>Pomodoro</h1>
+      <h4 class="session">Work Session</h4>
+      <div class="pomotimer">
+        <h2>25:00</h2>
+        <button class="pomo-start">start</button>
+        <button class="pomo-pause">pause</button>
+        <button class="pomo-reset">reset</button>
+      </div>
+    </section>
+    <!--  older one <section class="fullElem daily-goals-fullpage">
+      <button class="back" id="4">close</button>
+      <h1>Daily Goals</h1>
+    </section> -->
+    <section class="fullElem daily-goals-fullpage">
+      <button class="back" id="4">close</button>
+      <h1>Productivity Analytics</h1>
+
+      <div
+        style="width: 100%; max-width: 800px; margin: 20px auto; background: var(--ternary2); padding: 20px; border-radius: 15px;">
+        <canvas id="productivityChart"></canvas>
+      </div>
+    </section>
+  </div>
+  <script src="main.js">
+    //       function increaseHeight(){
+    //   let element=document.querySelector("#task12")
+    //   element.classList.add("increase")
+    //   console.log("button clicked")
+    // }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,588 @@
+:root {
+    --primary: #F8F4E1;
+    --secondary: #EDCDBB;
+    --ternary: #381c0a;
+    --ternary2: #74512D;
+    --yellow: #FEBA17;
+    --green: rgba(27, 120, 30, 0.514);
+    --blue: rgba(13, 135, 211, 0.648);
+}
+
+
+
+@font-face {
+    font-family: aeonic;
+    font-weight: 200;
+    src: url(./AeonikTRIAL-Light.otf);
+}
+
+@font-face {
+    font-family: aeonic;
+    font-weight: 500;
+    src: url(./AeonikTRIAL-Regular.otf);
+}
+
+@font-face {
+    font-family: aeonic;
+    font-weight: 700;
+    src: url(./AeonikTRIAL-Bold.otf);
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: aeonic;
+    color: var(--primary);
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-size: 18px;
+    color: white;
+}
+
+#main {
+
+    height: 100%;
+    width: 100%;
+    background-color: var(--ternary);
+
+}
+
+/* nav{
+    background-color: var(--primary);
+    position: fixed;
+    height:60px;
+    width:100%;
+} */
+section.allElem {
+    height: 100%;
+    width: 100%;
+    background-color: var(--ternary);
+    align-items: flex-start;
+    position: absolute;
+
+
+}
+
+.allElem header {
+    width: 96%;
+    /* border:2px solid white; */
+    background-color: var(--ternary2);
+    background: url('https://images.unsplash.com/photo-1708495733432-3581bd24bc80?q=80&w=2324&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVhttps: //images.unsplash.com/photo-1708495733432-3581bd24bc80?q=80&w=2324&auto=format&fit=crop&ixlib=rb-4.1.0https: //plus.unsplash.com/premium_photo-1733317236155-b0e1a2930f37?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==ufDB8fHx8fA%3D%3D');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: -10% 0%;
+    height: 45%;
+    margin: 20px;
+    padding: 50px;
+    margin-bottom: 70px;
+    margin-top: 35px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.header-1 h2 {
+    /* background-color: red; */
+    font-size: 80px;
+    font-weight: 500;
+}
+
+
+
+.header-1 h3 {
+    font-size: 70px;
+    font-weight: 500;
+
+}
+
+.header-2 h2 {
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.header-2 h3 {
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: 500;
+}
+
+.allElem .allFeatures1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.todo {
+    margin-left: 10px;
+}
+
+.elm {
+
+    background-color: #bd6029;
+    height: 280px;
+    width: 270px;
+    border-radius: 15px;
+    transition: 1s all ease;
+    font-size: 14px;
+    font-family: aeonic;
+    border: 3px solid rgb(142, 150, 144);
+    font-weight: 200;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.elm img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+
+}
+
+.elm h1 {
+    position: absolute;
+    bottom: 5%;
+    right: 9%;
+    font-size: 24px;
+}
+
+.elm:active {
+    scale: 0.94;
+
+}
+
+.fullElem {
+    height: 100%;
+    width: 100%;
+    background-color: var(--ternary);
+    padding: 40px;
+    /* font-size:40px; */
+    display: none;
+    position: absolute;
+
+}
+
+
+
+.fullElem .back {
+    padding: 10px 12px;
+    /* background-color: var(--yellow);
+     */
+    background-color: red;
+    border-radius: 10px;
+    position: absolute;
+    right: 5%;
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+    color: white;
+    cursor: pointer;
+    /* transition: 1s all ease-in; */
+}
+
+.back:active {
+    scale: 0.94;
+
+}
+
+.todo-list-fullpage h2 {
+    font-size: 55px;
+    font-family: aeonic;
+    font-weight: 700;
+}
+
+.todo-list-fullpage .todo-container {
+    height: 82%;
+    width: 100%;
+    margin-top: 30px;
+    /* padding:20px 30px; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-list-fullpage .todo-container .addTask {
+    height: 94%;
+    width: 32%;
+    background: var(--ternary2);
+    border-radius: 20px;
+    /* padding:20px 20px; */
+
+
+}
+
+.todo-list-fullpage .todo-container .allTask {
+    height: 94%;
+    width: 65%;
+    background: var(--ternary2);
+    border-radius: 20px;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.addTask form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+    gap: 20px;
+
+}
+
+.addTask form input[type="text"] {
+    width: 100%;
+    padding: 10px 20px;
+    height: 45px;
+    border-radius: 5px;
+    font-size: 30px;
+    background-color: var(--ternary);
+    border: none;
+    outline: none;
+    color: white;
+}
+
+.addTask form textarea {
+    width: 100%;
+    padding: 10px 20px;
+    /* height:45px; */
+    border-radius: 5px;
+    font-size: 30px;
+    background-color: var(--ternary);
+    border: none;
+    outline: none;
+    color: white;
+}
+
+.addTask form button {
+    width: 100%;
+    padding: 10px 20px;
+    height: 45px;
+    background-color: var(--yellow);
+    border: none;
+    font-size: 25px;
+    color: white;
+    border-radius: 5px;
+    font-family: aeonic;
+    font-weight: 500;
+
+    cursor: pointer;
+    transition: all .7s;
+}
+
+.addTask form button:active {
+    scale: 0.94;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.6);
+}
+
+.imp {
+    display: flex;
+    justify-content: space-around;
+    width: 48%;
+
+}
+
+/* this is for task list */
+.allTask {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    padding: 20px;
+}
+
+.allTask .task-container {
+    height: 90px;
+    width: 100%;
+    color: black;
+    background-color: var(--primary);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px;
+    transition: all ease .8s;
+}
+
+.task-container h3 {
+    font-size: 23px;
+    font-family: aeonic;
+    font-weight: 500;
+    color: black;
+}
+
+.task-container .mark_complete {
+    background-color: rgb(29, 99, 8);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: 500;
+    transition: all 1s;
+}
+
+.mark_complete:active {
+    scale: 0.94;
+}
+
+.dets {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dets details {
+
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 1%;
+    padding-right: 3%;
+    transition: all ease .8s;
+    color: black;
+    /* background-color: #888; */
+}
+
+.dets details .innerDets {
+    width: 460px;
+    padding: 10px;
+    border-top: 2px solid rgb(15, 6, 6);
+    height: 60px;
+    border-bottom: 2px solid rgb(1, 3, 1);
+    border-radius: 10px;
+    color: rgb(7, 1, 1);
+}
+
+.allTask .increase {
+    height: 140px;
+
+}
+
+.dets h3 span {
+    background-color: red;
+    border: 2px solid rgb(151, 136, 136);
+    color: white;
+    font-size: 14px;
+    margin-left: 15px;
+    padding: 3px 7px;
+    border-radius: 40%;
+}
+
+.daily-planner-fullpage h2 {
+    font-size: 50px;
+}
+
+.daily-planner-fullpage .dayplanner {
+    background-color: var(--ternary2);
+    height: 85%;
+    margin-top: 40px;
+    border-radius: 10px;
+    padding: 20px 30px;
+    display: flex;
+    align-items: flex-start;
+    overflow: auto;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+
+.daily-planner-fullpage .dayplanner .day-planner-time {
+    background-color: var(--ternary);
+    border-radius: 10px;
+    /* display: flex; */
+    position: relative;
+    overflow: hidden;
+    width: 49%;
+    margin-bottom: 10px;
+
+}
+
+.dayplanner .day-planner-time p {
+    position: absolute;
+    font-weight: 700;
+    top: 5%;
+    left: 2%;
+    font-size: 14px;
+    color: var(--yellow);
+}
+
+.dayplanner .day-planner-time input {
+    padding: 25px 30px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 25px;
+    background: var(--ternary);
+    color: white;
+}
+
+.motivational-fullpage {
+    /* display: block; */
+    position: relative;
+}
+
+.motivation-full-container {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.motivational-fullpage .motivational-container {
+    height: 500px;
+    width: 85%;
+    position: relative;
+
+}
+
+.motivational-fullpage .motivational-container::after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: var(--yellow);
+    border-radius: 50px;
+    scale: 1.09;
+    z-index: 8;
+    filter: blur(120px);
+}
+
+.motivational-fullpage .motivational-container .motivational-wrapper {
+    z-index: 10;
+    position: absolute;
+    /* height:100%; */
+    width: 100%;
+    background-color: var(--yellow);
+    padding: 19px;
+    border-radius: 30px;
+    border: 6px solid var(--ternary2);
+
+}
+
+.motivation-1 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+.motivation-1 h2 {
+    font-size: 40px;
+    font-weight: 500;
+    text-align: right;
+    padding: 20px;
+    border-radius: 20px;
+    width: fit-content;
+    background-color: var(--ternary);
+}
+
+.motivation-2 {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.motivation-2 h1 {
+    font-size: 55px;
+    font-weight: 700;
+    color: rgb(10, 5, 5);
+}
+
+.motivation-3 {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    border-radius: 10px;
+}
+
+.motivation-3 h2 {
+    font-size: 40px;
+    font-weight: 500;
+    text-align: right;
+    padding: 20px;
+    border-radius: 20px;
+    width: fit-content;
+    background-color: var(--ternary);
+}
+
+.motivational-wrapper .quote {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    opacity: 0.2;
+    height: 120px;
+}
+
+.pomodoro-fullpage {
+    /* display: block; */
+    position: relative;
+}
+
+.pomodoro-fullpage h1 {
+    font-size: 55px;
+}
+
+.pomotimer h2 {
+    font-size: 130px;
+    font-weight: 700;
+}
+
+.pomodoro-fullpage .pomotimer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pomotimer button {
+    text-transform: capitalize;
+    padding: 10px 20px;
+    background-color: #74512D;
+    font-size: 32px;
+    font-weight: 700;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 8px 9px 5px black;
+    transition: all ease .2s;
+}
+
+button:active {
+    box-shadow: 0px 0px 0px black;
+
+}
+
+.pomodoro-fullpage .session {
+    position: absolute;
+    font-size: 25px;
+    padding: 15px;
+    border-radius: 3px;
+    border: 1px solid white;
+    top: 23%;
+    left: 50%;
+    background-color: var(--green);
+    transform: translate(-50%, 0);
+}
+
+
+/* Media query */
+/* =========================================
+   TABLET RESPONSIVENESS (Max Width: 900px)
+   ========================================= */
