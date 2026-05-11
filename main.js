@@ -33,7 +33,7 @@ async function todoFeature() {
     // 1. Fetch tasks from the DB on load
     async function fetchTasks() {
         try {
-            const response = await fetch('http://localhost:5000/api/tasks');
+            const response = await fetch('https://productivity-dashboard-3.onrender.com/api/tasks');
             currentTask = await response.json();
             renderTask();
         } catch (error) {
@@ -64,7 +64,7 @@ async function todoFeature() {
             btn.addEventListener('click', async function() {
                 const taskId = btn.getAttribute('data-id');
                 try {
-                    await fetch(`http://localhost:5000/api/tasks/${taskId}`, { method: 'DELETE' });
+                    await fetch(`https://productivity-dashboard-3.onrender.com/api/tasks/${taskId}`, { method: 'DELETE' });
                     fetchTasks(); // Re-fetch after deletion
                 } catch (error) {
                     console.error("Error deleting task:", error);
@@ -84,7 +84,7 @@ async function todoFeature() {
         };
 
         try {
-            await fetch('http://localhost:5000/api/tasks', {
+            await fetch('https://productivity-dashboard-3.onrender.com/api/tasks', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(newTaskData)
@@ -110,7 +110,7 @@ todoFeature()
 
 //     // 1. Fetch Plan Data from DB
 //     try {
-//         const response = await fetch('http://localhost:5000/api/dayplan');
+//         const response = await fetch('https://productivity-dashboard-3.onrender.com/api/dayplan');
 //         dayPlanData = await response.json();
 //     } catch (error) {
 //         console.error("Error fetching day plan:", error);
@@ -134,7 +134,7 @@ todoFeature()
 //             dayPlanData[elm.id] = elm.value;
             
 //             try {
-//                 await fetch('http://localhost:5000/api/dayplan', {
+//                 await fetch('https://productivity-dashboard-3.onrender.com/api/dayplan', {
 //                     method: 'POST',
 //                     headers: { 'Content-Type': 'application/json' },
 //                     body: JSON.stringify(dayPlanData)
@@ -154,7 +154,7 @@ todoFeature()
 
 //     // 1. Fetch Plan Data from DB
 //     try {
-//         const response = await fetch('http://localhost:5000/api/dayplan');
+//         const response = await fetch('https://productivity-dashboard-3.onrender.com/api/dayplan');
 //         dayPlanData = await response.json();
 //     } catch (error) {
 //         console.error("Error fetching day plan:", error);
@@ -177,7 +177,7 @@ todoFeature()
 //         elm.addEventListener('blur', async function() { 
 //             dayPlanData[elm.id] = elm.value;
 //             try {
-//                 await fetch('http://localhost:5000/api/dayplan', {
+//                 await fetch('https://productivity-dashboard-3.onrender.com/api/dayplan', {
 //                     method: 'POST',
 //                     headers: { 'Content-Type': 'application/json' },
 //                     body: JSON.stringify(dayPlanData)
@@ -247,7 +247,7 @@ async function DailyPlanner() {
 
     // 1. Fetch Plan Data from DB
     try {
-        const response = await fetch('http://localhost:5000/api/dayplan');
+        const response = await fetch('https://productivity-dashboard-3.onrender.com/api/dayplan');
         dayPlanData = await response.json();
     } catch (error) {
         console.error("Error fetching day plan:", error);
@@ -303,7 +303,7 @@ async function DailyPlanner() {
 
     async function saveToDatabase() {
         try {
-            await fetch('http://localhost:5000/api/dayplan', {
+            await fetch('https://productivity-dashboard-3.onrender.com/api/dayplan', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(dayPlanData)
@@ -431,7 +431,7 @@ function startTimer() {
             
             if (isWorkSession) {
                 // 1. SAVE THE SESSION TO MONGODB
-                fetch('http://localhost:5000/api/focus', {
+                fetch('https://productivity-dashboard-3.onrender.com/api/focus', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ durationInMinutes: 25 })
@@ -513,7 +513,7 @@ let myChart = null; // Keep track of the chart
 
 async function loadAnalytics() {
     try {
-        const response = await fetch('http://localhost:5000/api/focus');
+        const response = await fetch('https://productivity-dashboard-3.onrender.com/api/focus');
         const data = await response.json();
 
         // Group data by date
@@ -634,7 +634,7 @@ loadAnalytics()
 
 
 //     try {
-//         const response = await fetch('http://localhost:5000/api/focus');
+//         const response = await fetch('https://productivity-dashboard-3.onrender.com/api/focus');
 //         const data = await response.json();
 
 //         // Group data by date
