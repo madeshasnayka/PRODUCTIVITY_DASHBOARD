@@ -12,7 +12,7 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 const MONGO_URI = process.env.MONGO_URI; 
 
 mongoose.connect(MONGO_URI)
@@ -21,9 +21,9 @@ mongoose.connect(MONGO_URI)
 // ==========================================
 // TODO LIST ROUTES
 // ==========================================
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public', 'index.html'));
+// });
 // Get all tasks
 app.get('/api/tasks', async (req, res) => {
     try {
