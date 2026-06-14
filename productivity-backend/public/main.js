@@ -1,3 +1,4 @@
+
 function openFeature(){
   var allElem=document.querySelectorAll(".elm");
 var allFullElem=document.querySelectorAll(".fullElem")
@@ -547,7 +548,7 @@ const months=["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oc
 let dates=document.querySelector(".header-1 h2")
 
 async function weatherCall(){
-  let response=await fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`)
+  let response=await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`)
    let data=await response.json()
    degree.innerHTML=`${data.current.temp_c} ℃`
    var date=new Date();
