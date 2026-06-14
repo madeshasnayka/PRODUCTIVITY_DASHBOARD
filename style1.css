@@ -1,3 +1,6 @@
+/* ==========================================
+   1. VARIABLES & FONTS
+   ========================================== */
 :root {
     --primary: #F8F4E1;
     --secondary: #EDCDBB;
@@ -7,8 +10,6 @@
     --green: rgba(27, 120, 30, 0.514);
     --blue: rgba(13, 135, 211, 0.648);
 }
-
-
 
 @font-face {
     font-family: aeonic;
@@ -28,8 +29,6 @@
     src: url(./AeonikTRIAL-Bold.otf);
 }
 
-
-
 * {
     margin: 0;
     padding: 0;
@@ -38,48 +37,51 @@
     color: var(--primary);
 }
 
+/* ==========================================
+   2. GLOBAL BASE STYLES & LAYOUT FIXES
+   ========================================== */
 html,
-body {
-    height: 100%;
+body,
+#main {
+    min-height: 100vh;
     width: 100%;
+    overflow-x: hidden;
+}
+
+body {
     font-size: 18px;
     color: white;
+    background-color: var(--ternary);
+    /* Prevents white bleeding */
 }
 
 #main {
-
-    height: 100%;
-    width: 100%;
     background-color: var(--ternary);
-
 }
 
-/* nav{
-    background-color: var(--primary);
-    position: fixed;
-    height:60px;
-    width:100%;
-} */
 section.allElem {
-    height: 100%;
+    min-height: 100vh;
     width: 100%;
     background-color: var(--ternary);
     align-items: flex-start;
-    position: absolute;
-
-
+    position: relative;
+    /* Allows dashboard to grow naturally */
+    padding-bottom: 50px;
 }
 
+/* ==========================================
+   3. MAIN DASHBOARD COMPONENTS
+   ========================================== */
 .allElem header {
     width: 96%;
-    /* border:2px solid white; */
     background-color: var(--ternary2);
-    background: url('https://images.unsplash.com/photo-1708495733432-3581bd24bc80?q=80&w=2324&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVhttps: //images.unsplash.com/photo-1708495733432-3581bd24bc80?q=80&w=2324&auto=format&fit=crop&ixlib=rb-4.1.0https: //plus.unsplash.com/premium_photo-1733317236155-b0e1a2930f37?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA==ufDB8fHx8fA%3D%3D');
+    background: url('https://images.unsplash.com/photo-1708495733432-3581bd24bc80?q=80&w=2324&auto=format&fit=crop');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: -10% 0%;
+    background-position: center;
     height: 45%;
-    margin: 20px;
+    margin: 20px auto;
+    /* Centers it */
     padding: 50px;
     margin-bottom: 70px;
     margin-top: 35px;
@@ -87,21 +89,16 @@ section.allElem {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
 }
 
 .header-1 h2 {
-    /* background-color: red; */
     font-size: 80px;
     font-weight: 500;
 }
 
-
-
 .header-1 h3 {
     font-size: 70px;
     font-weight: 500;
-
 }
 
 .header-2 h2 {
@@ -115,7 +112,7 @@ section.allElem {
     font-weight: 500;
 }
 
-.allElem .allFeatures1 {
+.allFeatures1 {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -125,15 +122,13 @@ section.allElem {
     margin-left: 10px;
 }
 
-.elm {
-
+.allFeatures1 .elm {
     background-color: #bd6029;
     height: 280px;
     width: 270px;
     border-radius: 15px;
     transition: 1s all ease;
     font-size: 14px;
-    font-family: aeonic;
     border: 3px solid rgb(142, 150, 144);
     font-weight: 200;
     overflow: hidden;
@@ -145,8 +140,6 @@ section.allElem {
     height: 100%;
     width: 100%;
     object-fit: cover;
-
-
 }
 
 .elm h1 {
@@ -158,46 +151,50 @@ section.allElem {
 
 .elm:active {
     scale: 0.94;
-
 }
 
+/* ==========================================
+   4. GLOBAL MODAL CONTAINER (.fullElem)
+   ========================================== */
 .fullElem {
-    height: 100%;
+    position: fixed;
+    /* Locks to screen, prevents background scroll */
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100vh;
+    z-index: 999;
     background-color: var(--ternary);
     padding: 40px;
-    /* font-size:40px; */
     display: none;
-    position: absolute;
-
+    overflow-y: auto;
+    overflow-x: hidden;
 }
-
-
 
 .fullElem .back {
     padding: 10px 12px;
-    /* background-color: var(--yellow);
-     */
     background-color: red;
     border-radius: 10px;
     position: absolute;
     right: 5%;
+    top: 5%;
     font-size: 20px;
     font-weight: 700;
     border: none;
     color: white;
     cursor: pointer;
-    /* transition: 1s all ease-in; */
+    transition: 0.3s ease;
 }
 
-.back:active {
+.fullElem .back:active {
     scale: 0.94;
-
 }
 
+/* ==========================================
+   5. TODO LIST MODAL
+   ========================================== */
 .todo-list-fullpage h2 {
     font-size: 55px;
-    font-family: aeonic;
     font-weight: 700;
 }
 
@@ -205,7 +202,6 @@ section.allElem {
     height: 82%;
     width: 100%;
     margin-top: 30px;
-    /* padding:20px 30px; */
     display: flex;
     justify-content: space-between;
 }
@@ -215,9 +211,6 @@ section.allElem {
     width: 32%;
     background: var(--ternary2);
     border-radius: 20px;
-    /* padding:20px 20px; */
-
-
 }
 
 .todo-list-fullpage .todo-container .allTask {
@@ -237,25 +230,12 @@ section.allElem {
     align-items: flex-start;
     padding: 30px;
     gap: 20px;
-
 }
 
-.addTask form input[type="text"] {
-    width: 100%;
-    padding: 10px 20px;
-    height: 45px;
-    border-radius: 5px;
-    font-size: 30px;
-    background-color: var(--ternary);
-    border: none;
-    outline: none;
-    color: white;
-}
-
+.addTask form input[type="text"],
 .addTask form textarea {
     width: 100%;
     padding: 10px 20px;
-    /* height:45px; */
     border-radius: 5px;
     font-size: 30px;
     background-color: var(--ternary);
@@ -273,9 +253,7 @@ section.allElem {
     font-size: 25px;
     color: white;
     border-radius: 5px;
-    font-family: aeonic;
     font-weight: 500;
-
     cursor: pointer;
     transition: all .7s;
 }
@@ -284,23 +262,16 @@ section.allElem {
     scale: 0.94;
 }
 
-input[type="checkbox"] {
+.addTask form .imp {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.addTask form input[type="checkbox"] {
     transform: scale(1.6);
-}
-
-.imp {
-    display: flex;
-    justify-content: space-around;
-    width: 48%;
-
-}
-
-/* this is for task list */
-.allTask {
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    padding: 20px;
 }
 
 .allTask .task-container {
@@ -319,7 +290,6 @@ input[type="checkbox"] {
 
 .task-container h3 {
     font-size: 23px;
-    font-family: aeonic;
     font-weight: 500;
     color: black;
 }
@@ -333,10 +303,11 @@ input[type="checkbox"] {
     outline: none;
     font-size: 20px;
     font-weight: 500;
-    transition: all 1s;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
-.mark_complete:active {
+.task-container .mark_complete:active {
     scale: 0.94;
 }
 
@@ -347,14 +318,11 @@ input[type="checkbox"] {
 }
 
 .dets details {
-
     border-radius: 10px;
     cursor: pointer;
     padding: 1%;
     padding-right: 3%;
-    transition: all ease .8s;
     color: black;
-    /* background-color: #888; */
 }
 
 .dets details .innerDets {
@@ -367,11 +335,6 @@ input[type="checkbox"] {
     color: rgb(7, 1, 1);
 }
 
-.allTask .increase {
-    height: 140px;
-
-}
-
 .dets h3 span {
     background-color: red;
     border: 2px solid rgb(151, 136, 136);
@@ -382,6 +345,9 @@ input[type="checkbox"] {
     border-radius: 40%;
 }
 
+/* ==========================================
+   6. DAILY PLANNER MODAL
+   ========================================== */
 .daily-planner-fullpage h2 {
     font-size: 50px;
 }
@@ -397,21 +363,18 @@ input[type="checkbox"] {
     overflow: auto;
     flex-wrap: wrap;
     gap: 20px;
-
 }
 
 .daily-planner-fullpage .dayplanner .day-planner-time {
     background-color: var(--ternary);
     border-radius: 10px;
-    /* display: flex; */
     position: relative;
     overflow: hidden;
     width: 49%;
     margin-bottom: 10px;
-
 }
 
-.dayplanner .day-planner-time p {
+.dayplanner .day-planner-time p.time-label {
     position: absolute;
     font-weight: 700;
     top: 5%;
@@ -420,7 +383,7 @@ input[type="checkbox"] {
     color: var(--yellow);
 }
 
-.dayplanner .day-planner-time input {
+.dayplanner .day-planner-time input.task-input {
     padding: 25px 30px;
     width: 100%;
     border: none;
@@ -430,26 +393,25 @@ input[type="checkbox"] {
     color: white;
 }
 
+/* ==========================================
+   7. MOTIVATION MODAL
+   ========================================== */
 .motivational-fullpage {
-    /* display: block; */
     position: relative;
 }
 
 .motivation-full-container {
     width: 100%;
     height: 100%;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .motivational-fullpage .motivational-container {
     height: 500px;
     width: 85%;
     position: relative;
-
 }
 
 .motivational-fullpage .motivational-container::after {
@@ -464,23 +426,20 @@ input[type="checkbox"] {
     filter: blur(120px);
 }
 
-.motivational-fullpage .motivational-container .motivational-wrapper {
+.motivational-container .motivational-wrapper {
     z-index: 10;
     position: absolute;
-    /* height:100%; */
     width: 100%;
     background-color: var(--yellow);
     padding: 19px;
     border-radius: 30px;
     border: 6px solid var(--ternary2);
-
 }
 
 .motivation-1 {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-
 }
 
 .motivation-1 h2 {
@@ -530,8 +489,10 @@ input[type="checkbox"] {
     height: 120px;
 }
 
+/* ==========================================
+   8. POMODORO MODAL
+   ========================================== */
 .pomodoro-fullpage {
-    /* display: block; */
     position: relative;
 }
 
@@ -539,16 +500,17 @@ input[type="checkbox"] {
     font-size: 55px;
 }
 
-.pomotimer h2 {
-    font-size: 130px;
-    font-weight: 700;
-}
-
 .pomodoro-fullpage .pomotimer {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.pomotimer h2 {
+    font-size: 130px;
+    font-weight: 700;
 }
 
 .pomotimer button {
@@ -561,12 +523,12 @@ input[type="checkbox"] {
     border-radius: 5px;
     border: none;
     box-shadow: 8px 9px 5px black;
-    transition: all ease .2s;
+    transition: all ease .25s;
+    cursor: pointer;
 }
 
-button:active {
+.pomotimer button:active {
     box-shadow: 0px 0px 0px black;
-
 }
 
 .pomodoro-fullpage .session {
@@ -581,392 +543,12 @@ button:active {
     transform: translate(-50%, 0);
 }
 
-#pro {
-    margin-bottom: 10%;
-}
-
 
 /* ==========================================
-   RESPONSIVE MEDIA QUERIES (DYNAMIC SPA)
+   9. RESPONSIVE MEDIA QUERIES (DYNAMIC SPA)
    ========================================== */
 
-/* Small Desktop / Laptop (max-width: 1200px) */
-@media screen and (max-width: 1200px) {
-
-    /* Give todo split sections slightly more breathing room */
-    .todo-list-fullpage .todo-container .addTask {
-        width: 40%;
-    }
-
-    .todo-list-fullpage .todo-container .allTask {
-        width: 55%;
-    }
-
-    /* Day planner items slightly larger to avoid text clipping */
-    .daily-planner-fullpage .dayplanner .day-planner-time {
-        width: 48%;
-    }
-
-    /* Soften dashboard card sizing */
-    .allFeatures1 .elm {
-        width: calc(33.333% - 20px);
-    }
-}
-
-/* Tablet (max-width: 900px) */
-@media screen and (max-width: 900px) {
-
-    /* 3. Fluid Typography Everywhere */
-    .header-1 h2 {
-        font-size: clamp(32px, 6vw, 80px);
-    }
-
-    .header-1 h3 {
-        font-size: clamp(24px, 5vw, 70px);
-    }
-
-    .header-2 h2 {
-        font-size: clamp(20px, 4vw, 40px);
-    }
-
-    .header-2 h3 {
-        font-size: clamp(14px, 2vw, 20px);
-    }
-
-    .todo-list-fullpage h2 {
-        font-size: clamp(30px, 5vw, 55px);
-    }
-
-    .daily-planner-fullpage h2 {
-        font-size: clamp(30px, 5vw, 50px);
-    }
-
-    .pomotimer h2 {
-        font-size: clamp(60px, 15vw, 130px);
-    }
-
-    .pomodoro-fullpage h1 {
-        font-size: clamp(30px, 6vw, 55px);
-    }
-
-    .motivation-2 h1 {
-        font-size: clamp(30px, 6vw, 55px);
-    }
-
-    .motivation-1 h2,
-    .motivation-3 h2 {
-        font-size: clamp(20px, 4vw, 40px);
-    }
-
-    /* 5. Padding & Margins - Drastic Reduction */
-    .allElem header {
-        padding: 30px;
-        margin: 10px;
-        margin-bottom: 40px;
-        height: auto;
-    }
-
-    .fullElem {
-        padding: 20px;
-    }
-
-    /* Main Dashboard Grids (2-Column Tablet) */
-    .allFeatures1 {
-        justify-content: center;
-    }
-
-    .allFeatures1 .elm {
-        width: calc(50% - 20px);
-        margin: 10px;
-    }
-
-    /* 4. Modal Splitting Fixes - Vertically Stack Modals */
-    .todo-list-fullpage .todo-container {
-        flex-direction: column;
-        height: auto;
-        overflow-y: visible;
-    }
-
-    .todo-list-fullpage .todo-container .addTask,
-    .todo-list-fullpage .todo-container .allTask {
-        width: 100% !important;
-        height: auto;
-        margin-bottom: 20px;
-        overflow: visible;
-    }
-
-    /* 2. Dynamic Daily Planner Fixes (Tablet) */
-    .daily-planner-fullpage .dayplanner .day-planner-time {
-        width: 100%;
-    }
-}
-
-/* Mobile (max-width: 480px) */
-@media screen and (max-width: 480px) {
-
-    /* 6. Absolute Positioning Fixes (Close Button) */
-    .fullElem .back {
-        top: 15px;
-        right: 15px;
-        font-size: 14px;
-        padding: 8px 15px;
-        z-index: 1000;
-        /* Ensure it stays clickable over dynamic content */
-    }
-
-    /* Main Dashboard Stack */
-    .allElem header {
-        flex-direction: column;
-        text-align: center;
-        padding: 20px 15px;
-        background-position: center;
-    }
-
-    .header-1 {
-        margin-bottom: 15px;
-    }
-
-    .allFeatures1 .elm {
-        width: 100%;
-        margin: 10px 0;
-        height: 200px;
-    }
-
-    /* 5. Padding & Margins reductions for modals */
-    .fullElem {
-        padding: 15px;
-        padding-top: 60px;
-        /* Safe space for the absolute close button */
-    }
-
-    .addTask form {
-        padding: 15px;
-    }
-
-    .daily-planner-fullpage .dayplanner {
-        padding: 15px 10px;
-        margin-top: 20px;
-    }
-
-    /* Forms and Inputs scaling */
-    .addTask form input[type="text"],
-    .addTask form textarea,
-    .addTask form button {
-        font-size: 16px;
-        padding: 12px;
-    }
-
-    /* 1. Dynamic Todo List Fixes */
-    .allTask .task-container {
-        flex-direction: column;
-        height: auto;
-        /* Override fixed height */
-        align-items: flex-start;
-        padding: 15px;
-    }
-
-    .allTask .task-container .dets {
-        width: 100%;
-        margin-bottom: 15px;
-    }
-
-    /* Override the hardcoded 460px width */
-    .dets details.innerDets,
-    .dets details .innerDets {
-        width: 100% !important;
-        max-width: 100%;
-        height: auto;
-    }
-
-    .task-container .mark_complete {
-        width: 100%;
-        margin-top: 10px;
-        font-size: 16px;
-    }
-
-    /* 2. Dynamic Daily Planner Fixes */
-    .daily-planner-fullpage .dayplanner .day-planner-time {
-        width: 100%;
-        flex-direction: column;
-        /* Stack the label and input so they don't crush */
-        align-items: flex-start !important;
-        padding: 10px;
-    }
-
-    .dayplanner .day-planner-time p.time-label {
-        position: relative;
-        /* Remove absolute positioning so it flows naturally */
-        top: 0;
-        left: 0;
-        margin-bottom: 8px;
-        padding-right: 0;
-    }
-
-    .dayplanner .day-planner-time input.task-input {
-        font-size: 18px;
-        padding: 15px;
-        width: 100%;
-    }
-
-    /* Pomodoro Mobile Fixes */
-    .pomodoro-fullpage .pomotimer {
-        width: 100%;
-        text-align: center;
-    }
-
-    .pomotimer button {
-        font-size: 16px;
-
-        padding: 10px 15px;
-        margin: 5px;
-    }
-
-    .pomodoro-fullpage .session {
-        top: 15%;
-        width: 90%;
-        font-size: 18px;
-        white-space: nowrap;
-        text-align: center;
-    }
-
-    /* Motivation Mobile Fixes */
-    .motivational-fullpage .motivational-container {
-        width: 100%;
-        height: auto;
-        padding: 20px 0;
-    }
-
-    .motivational-fullpage .motivational-container::after {
-        filter: blur(40px);
-    }
-
-    .motivational-wrapper .quote {
-        height: 60px;
-        right: 5%;
-        top: 5%;
-    }
-
-    .motivation-1 h2,
-    .motivation-3 h2 {
-        padding: 10px;
-        border-radius: 10px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-
-    /* 1 & 2. Scrollable Modals & Bottom Padding */
-    .fullElem {
-        height: 100%;
-        overflow-y: auto;
-        overflow-x: hidden;
-        padding-bottom: 80px;
-    }
-
-    /* 4. Safe Stacking */
-    .todo-container {
-        height: auto !important;
-    }
-
-    /* 3. Checkbox Alignment Fix */
-    .addTask form .imp {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        justify-content: flex-start;
-    }
-
-    /* Remove the massive scaling that was pushing it out of alignment */
-    .addTask form input[type="checkbox"] {
-        transform: none;
-        margin: 0;
-    }
-}
-
-@media screen and (max-width: 480px) {
-
-    /* ==========================================
-     PART 1: THE SCROLL LOCK
-     ========================================== */
-    .fullElem {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 999;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-
-
-
-}
-
-/* GLOBAL MODAL FIX */
-.fullElem {
-    position: fixed;
-    /* Locks to the glass of your screen, not the webpage */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 999;
-    /* Ensures it sits on top of everything */
-    background-color: var(--ternary);
-    padding: 40px;
-    display: none;
-    overflow-y: auto;
-    /* Allows the inside of the modal to scroll */
-    overflow-x: hidden;
-}
-
-html,
-body,
-#main {
-    min-height: 100vh;
-    overflow-x: hidden;
-}
-
-/* Force the body background so it never bleeds white */
-body {
-    background-color: var(--ternary);
-}
-
-/* ==========================================
-   GLOBAL BASE OVERRIDES (Put these at the top of your layout)
-   ========================================== */
-html,
-body,
-#main {
-    min-height: 100vh;
-    overflow-x: hidden;
-}
-
-body {
-    background-color: var(--ternary);
-}
-
-/* GLOBAL MODAL FIX (One rule to rule them all) */
-.fullElem {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 999;
-    background-color: var(--ternary);
-    padding: 40px;
-    display: none;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-/* ==========================================
-   RESPONSIVE MEDIA QUERIES (DYNAMIC SPA)
-   ========================================== */
-
-/* Small Desktop / Laptop (max-width: 1200px) */
+/* --- Small Desktop / Laptop (max-width: 1200px) --- */
 @media screen and (max-width: 1200px) {
     .todo-list-fullpage .todo-container .addTask {
         width: 40%;
@@ -985,8 +567,10 @@ body {
     }
 }
 
-/* Tablet (max-width: 900px) */
+/* --- Tablet (max-width: 900px) --- */
 @media screen and (max-width: 900px) {
+
+    /* Fluid Typography */
     .header-1 h2 {
         font-size: clamp(32px, 6vw, 80px);
     }
@@ -1019,6 +603,7 @@ body {
         font-size: clamp(20px, 4vw, 40px);
     }
 
+    /* Dashboard Padding reductions */
     .allElem header {
         padding: 30px;
         margin: 10px;
@@ -1039,6 +624,7 @@ body {
         margin: 10px;
     }
 
+    /* Vertical Stacking */
     .todo-list-fullpage .todo-container {
         flex-direction: column;
         height: auto;
@@ -1058,16 +644,16 @@ body {
     }
 }
 
-/* Mobile (max-width: 480px) - CONSOLIDATED BLOCK */
+/* --- Mobile (max-width: 480px) - FULLY CONSOLIDATED --- */
 @media screen and (max-width: 480px) {
 
-    /* Modal Global Overrides for Mobile */
+    /* Global Modal Adjustments */
     .fullElem {
         padding: 15px;
         padding-top: 60px;
         /* Safe space for close button */
         padding-bottom: 80px;
-        /* Let user scroll past bottom elements */
+        /* Safe scrolling space */
     }
 
     .fullElem .back {
@@ -1078,7 +664,7 @@ body {
         z-index: 1000;
     }
 
-    /* Dashboard Adjustments */
+    /* Main Dashboard Base */
     .allElem header {
         flex-direction: column;
         text-align: center;
@@ -1095,7 +681,7 @@ body {
         height: 200px;
     }
 
-    /* --- 1. TASK MANAGER FIXES --- */
+    /* Task Manager Fixes */
     .addTask form {
         padding: 15px;
     }
@@ -1147,7 +733,7 @@ body {
         font-size: 16px;
     }
 
-    /* --- 2. DAILY PLANNER FIXES --- */
+    /* Daily Planner Fixes */
     .daily-planner-fullpage .dayplanner {
         padding: 15px 10px;
         margin-top: 20px;
@@ -1175,33 +761,31 @@ body {
         width: 100%;
     }
 
-    /* --- 3. POMODORO FIXES --- */
-    .pomodoro-fullpage {
-        display: block;
-        /* border: 2px solid white; */
-    }
-
+    /* Pomodoro Fixes */
     .pomodoro-fullpage .pomotimer {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        /* Disables absolute centering on mobile */
         width: 100%;
         text-align: center;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
         gap: 20px;
         margin-top: 20px;
-
+        height: auto;
     }
 
     .pomotimer button {
         font-size: 16px;
-        padding: 10px 5px;
-
+        padding: 10px 15px;
         margin: 5px;
     }
 
     .pomodoro-fullpage .session {
         position: relative;
-        top: 20px;
+        top: 0;
         transform: none;
         width: auto;
         font-size: 18px;
@@ -1209,28 +793,28 @@ body {
         display: inline-block;
     }
 
-    /* --- 4. MOTIVATION FIXES --- */
+    /* Motivation Fixes */
     .motivational-fullpage {
-
-        padding: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding-top: 0 !important;
     }
 
     .motivational-fullpage .motivational-container {
         width: 100%;
         height: auto;
         padding: 20px 0;
-        margin-top: -10px;
-
-    }
-
-    .motivational-fullpage .motivational-container {
-        position: absolute;
-        top: 30%;
+        margin-top: -5vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
     }
 
     .motivational-fullpage .motivational-container::after {
         filter: blur(40px);
-
         scale: 0.9;
     }
 
@@ -1242,42 +826,32 @@ body {
 
     .motivation-1 h2,
     .motivation-3 h2 {
-        padding: 8px;
+        padding: 10px;
         border-radius: 10px;
         font-size: 16px;
-
     }
 
     .motivation-2 h1 {
-        line-height: 1.1;
-
+        line-height: 1.3;
     }
 
-    /* --- 5. DAILY GOALS CHART FIX --- */
+    /* Daily Goals Chart Responsiveness */
     .daily-goals-fullpage {
         display: flex;
         flex-direction: column;
-        gap: 70px;
     }
 
-    /* Target the inline-styled div holding the canvas to force it to shrink */
     .daily-goals-fullpage div {
-
-        /* border: 10px solid white; */
         width: 100% !important;
         max-width: 100% !important;
         padding: 10px !important;
         margin: 10px 0 !important;
         box-sizing: border-box;
         overflow-x: auto;
-        height: 800px;
-        /* Allows horizontal scrolling if the chart gets too squished */
     }
 
     canvas#productivityChart {
         width: 100% !important;
-        /* border: 2px solid white; */
         max-height: 950px !important;
-        /* Prevents it from stretching too tall vertically */
     }
 }

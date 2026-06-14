@@ -1,0 +1,663 @@
+/* ==========================================
+   1. VARIABLES, FONTS & RESET
+   ========================================== */
+:root {
+    --primary: #F8F4E1;
+    --secondary: #EDCDBB;
+    --ternary: #381c0a;
+    --ternary2: #74512D;
+    --yellow: #FEBA17;
+    --green: rgba(27, 120, 30, 0.514);
+    --blue: rgba(13, 135, 211, 0.648);
+}
+
+@font-face {
+    font-family: aeonic;
+    font-weight: 200;
+    src: url(./AeonikTRIAL-Light.otf);
+}
+
+@font-face {
+    font-family: aeonic;
+    font-weight: 500;
+    src: url(./AeonikTRIAL-Regular.otf);
+}
+
+@font-face {
+    font-family: aeonic;
+    font-weight: 700;
+    src: url(./AeonikTRIAL-Bold.otf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: aeonic;
+    color: var(--primary);
+}
+
+/* ==========================================
+   2. GLOBAL BASE & VIEWPORT SAFEGUARDS
+   ========================================== */
+html,
+body,
+#main {
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-size: 18px;
+    background-color: var(--ternary);
+    /* Prevents white screen bleeding globally */
+}
+
+#main {
+    background-color: var(--ternary);
+}
+
+/* Base FLUID TYPOGRAPHY (Scales perfectly on all screens without media queries) */
+.header-1 h2 {
+    font-size: clamp(32px, 6vw, 80px);
+    font-weight: 500;
+}
+
+.header-1 h3 {
+    font-size: clamp(24px, 5vw, 70px);
+    font-weight: 500;
+}
+
+.header-2 h2 {
+    font-size: clamp(20px, 4vw, 40px);
+    font-weight: 500;
+}
+
+.header-2 h3 {
+    font-size: clamp(14px, 2vw, 20px);
+    line-height: 1.3;
+    font-weight: 500;
+}
+
+.todo-list-fullpage h2,
+.daily-planner-fullpage h2,
+.pomodoro-fullpage h1,
+.motivation-2 h1 {
+    font-size: clamp(30px, 5vw, 55px);
+    font-weight: 700;
+}
+
+.pomotimer h2 {
+    font-size: clamp(60px, 15vw, 130px);
+    font-weight: 700;
+}
+
+.motivation-1 h2,
+.motivation-3 h2 {
+    font-size: clamp(18px, 4vw, 40px);
+    font-weight: 500;
+}
+
+/* ==========================================
+   3. MAIN DASHBOARD (.allElem)
+   ========================================== */
+section.allElem {
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--ternary);
+    position: relative;
+    /* Allows dashboard to grow */
+    padding-bottom: 50px;
+}
+
+.allElem header {
+    width: 96%;
+    background-color: var(--ternary2);
+    background: url('https://images.unsplash.com/photo-1708495733432-3581bd24bc80?q=80&w=2324&auto=format&fit=crop') center/cover no-repeat;
+    margin: 35px auto 70px auto;
+    padding: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.allFeatures1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.allFeatures1 .elm {
+    background-color: #bd6029;
+    height: 280px;
+    width: 270px;
+    border-radius: 15px;
+    transition: 0.3s all ease;
+    border: 3px solid rgb(142, 150, 144);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.elm img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.elm h1 {
+    position: absolute;
+    bottom: 5%;
+    right: 9%;
+    font-size: 24px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.elm:active {
+    transform: scale(0.96);
+}
+
+/* ==========================================
+   4. THE GLOBAL VIEWPORT-LOCKED MODAL
+   ========================================== */
+.fullElem {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    /* Internal scrolling only */
+    overflow-x: hidden;
+    z-index: 1000;
+    /* Stays above everything */
+    background-color: var(--ternary);
+    padding: 40px;
+    display: none;
+}
+
+.fullElem .back {
+    padding: 10px 15px;
+    background-color: red;
+    border-radius: 10px;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    z-index: 1010;
+    transition: transform 0.2s;
+}
+
+.fullElem .back:active {
+    transform: scale(0.95);
+}
+
+/* ==========================================
+   5. TODO MANAGER
+   ========================================== */
+.todo-container {
+    height: 82%;
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.addTask {
+    width: 35%;
+    background: var(--ternary2);
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.allTask {
+    width: 65%;
+    background: var(--ternary2);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.addTask form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.addTask form input[type="text"],
+.addTask form textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    background-color: var(--ternary);
+    border: none;
+    outline: none;
+}
+
+.addTask form button {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--yellow);
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.addTask form button:active {
+    transform: scale(0.96);
+}
+
+.addTask form .imp {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.addTask form input[type="checkbox"] {
+    transform: scale(1.4);
+    margin: 0;
+}
+
+.task-container {
+    width: 100%;
+    background-color: var(--primary);
+    color: black;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-container h3 {
+    color: black;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.task-container h3 span {
+    background-color: red;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.task-container .dets details {
+    cursor: pointer;
+    color: black;
+}
+
+.task-container .innerDets {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: #333;
+}
+
+.task-container .mark_complete {
+    background-color: rgb(29, 99, 8);
+    padding: 10px 15px;
+    border-radius: 7px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.task-container .mark_complete:active {
+    transform: scale(0.95);
+}
+
+/* ==========================================
+   6. DAILY PLANNER
+   ========================================== */
+.dayplanner {
+    background-color: var(--ternary2);
+    height: auto;
+    min-height: 80%;
+    margin-top: 30px;
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.day-planner-time {
+    background-color: var(--ternary);
+    border-radius: 10px;
+    width: calc(50% - 10px);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.day-planner-time p.time-label {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    color: var(--yellow);
+    font-weight: 700;
+    font-size: 14px;
+    z-index: 2;
+}
+
+.day-planner-time input.task-input {
+    width: 100%;
+    padding: 35px 20px 20px 20px;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    background: transparent;
+}
+
+/* ==========================================
+   7. POMODORO TIMER
+   ========================================== */
+.pomodoro-fullpage .pomotimer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.pomotimer .buttons-wrapper {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pomotimer button {
+    padding: 12px 25px;
+    background-color: #74512D;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.pomotimer button:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 transparent;
+}
+
+.pomodoro-fullpage .session {
+    background-color: var(--green);
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* ==========================================
+   8. MOTIVATION MODAL
+   ========================================== */
+.motivation-full-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.motivational-container {
+    width: 85%;
+    max-width: 900px;
+    position: relative;
+}
+
+.motivational-container::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--yellow);
+    border-radius: 50px;
+    filter: blur(80px);
+    z-index: 1;
+}
+
+.motivational-wrapper {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    background-color: var(--yellow);
+    padding: 40px;
+    border-radius: 30px;
+    border: 6px solid var(--ternary2);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.motivation-1 h2 {
+    text-align: left;
+    background-color: var(--ternary);
+    padding: 15px 25px;
+    border-radius: 15px;
+    align-self: flex-start;
+}
+
+.motivation-2 h1 {
+    color: #111;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.motivation-3 h2 {
+    text-align: right;
+    background-color: var(--ternary);
+    padding: 15px 25px;
+    border-radius: 15px;
+    align-self: flex-end;
+}
+
+.motivational-wrapper .quote {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    opacity: 0.15;
+    height: 100px;
+}
+
+/* ==========================================
+   9. CHART.JS SAFEGUARD CONTAINER (CRITICAL FIX)
+   ========================================== */
+.daily-goals-fullpage {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 70px;
+
+    /* border: 5px solid white; */
+}
+
+.chart-container-wrapper {
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* Locks the height so canvas can't infinitely stretch */
+    padding: 15px;
+    background: var(--ternary2);
+    /* background: red; */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(248, 7, 7, 0.92);
+    margin-top: 30px;
+}
+
+canvas#productivityChart {
+    width: 100% !important;
+    height: 100% !important;
+    /* display: block; */
+
+    border: 5px solid white;
+}
+
+
+/* ==========================================
+   10. CONSOLIDATED MEDIA QUERIES
+   ========================================== */
+
+/* --- TABLET / SMALL DESKTOP --- */
+@media screen and (max-width: 900px) {
+    .allElem header {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+        gap: 20px;
+    }
+
+    .allFeatures1 .elm {
+        width: calc(50% - 20px);
+    }
+
+    .todo-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .addTask,
+    .allTask {
+        width: 100%;
+    }
+
+    .day-planner-time {
+        width: 100%;
+    }
+}
+
+/* --- MOBILE SAFE STACKING --- */
+@media screen and (max-width: 480px) {
+
+    .fullElem {
+        padding: 80px 15px 40px 15px;
+    }
+
+    /* Safe space for close button */
+    .fullElem .back {
+        top: 15px;
+        right: 15px;
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .allFeatures1 .elm {
+        width: 100%;
+        height: 200px;
+    }
+
+    .allElem header {
+        padding: 20px 15px;
+        margin: 20px 10px;
+    }
+
+    /* 1. Safe Stacking: Task Manager */
+    .task-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        height: auto;
+    }
+
+    .task-container .mark_complete {
+        width: 100%;
+    }
+
+    /* 2. Safe Stacking: Daily Planner */
+    .dayplanner {
+        padding: 15px;
+    }
+
+    .day-planner-time {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+    }
+
+    .day-planner-time p.time-label {
+        position: relative;
+        top: 0;
+        left: 0;
+        padding: 15px 15px 0 15px;
+    }
+
+    .day-planner-time input.task-input {
+        padding: 10px 15px 15px 15px;
+    }
+
+    /* 3. Safe Stacking: Pomodoro */
+    .pomodoro-fullpage .pomotimer {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        height: auto;
+        margin-top: 40px;
+    }
+
+    .pomotimer .buttons-wrapper {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .pomotimer button {
+        width: 100%;
+        margin: 0;
+    }
+
+    /* Motivation & Chart Adjustments */
+    /* ==========================================
+     MOTIVATION & CHART UI GLOW-UP (MOBILE)
+     ========================================== */
+    /* --- MASSIVE MOBILE CHART GLOW-UP --- */
+    .chart-container-wrapper {
+        position: relative;
+        width: 100%;
+        height: 60vh !important;
+        /* Takes up exactly 60% of the phone's screen height! */
+        min-height: 400px;
+        /* Fallback for very small phones */
+        padding: 15px;
+        background: var(--ternary2);
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(169, 16, 16, 0.2);
+        margin-top: 20px;
+    }
+
+    canvas#productivityChart {
+        width: 100% !important;
+        height: 200%;
+        /* Now forced to fill the massive 60vh wrapper */
+        /* display: block; */
+    }
+}
