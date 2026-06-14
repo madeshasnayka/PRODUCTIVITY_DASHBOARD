@@ -444,14 +444,37 @@ function motivationalQuote(){
 let motivation=document.querySelector(".motivation-2 h1");
 let author=document.querySelector(".motivation-3 h2");
 async function fetchQuote(){
-  let response=await fetch('https://api.quotable.io/random');
+  let response=await fetch('https://dummyjson.com/quotes/random');
   let data=await response.json()
 
-  motivation.textContent=data.content;
+  motivation.textContent=data.quote;
   author.innerHTML=data.author;
 
 }
 fetchQuote()
+// async function fetchQuote() {
+//     try {
+//         // 1. Ask the new, working API for a random quote
+//         const response = await fetch('https://dummyjson.com/quotes/random');
+//         const data = await response.json();
+        
+//         // 2. Return the data. 
+//         // Note: The old API used "data.content", but DummyJSON uses "data.quote". 
+//         // We will rename it here so you don't have to change any of your other code!
+//         return {
+//             content: data.quote,
+//             author: data.author
+//         };
+        
+//     } catch (error) {
+//         console.error("Error fetching quote:", error);
+//         // Fallback quote just in case the internet disconnects
+//         return {
+//             content: "Focus on being productive instead of busy.",
+//             author: "Tim Ferriss"
+//         };
+//     }
+// }
 }
 motivationalQuote()
 
